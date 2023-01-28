@@ -1,6 +1,6 @@
-#!/usr//bin/perl
-#       ↑あなたが加入しているプロバイダの｢perl｣言語が使用できる
-#         パスを指定します。一般的に｢#!/usr/local/bin/perl｣で大丈夫
+#!/usr/bin/perl
+# ↑ You can use the "perl" language of the provider you subscribe to.
+# path. Generally, "#! /usr/local/bin/perl" or "#! /usr/bin/perl" is fine. (It depends.)
 
 #=======================================================================================
 #				resbbs Version 1.1
@@ -9,48 +9,48 @@
 require 'jcode.pl';
 
 #-----------------------------------------------------------------
-#あなたのホームページに戻るためのＵＲＬ
-$homepage = 'http://wwwxx.xxxxxxxx.or.jp/~xxxxxx/index.htm';
+# URL for the website's home page to be linked
+$homepage = '/../';
 #-----------------------------------------------------------------
-#管理者削除モードのパスワード
-#管理者は、件名欄にパスワードを入力して[投稿]ボタンを押す
+#Password for administrator deletion mode
+# Administrators, enter the password in the subject field and press the [submit] button.
 $password = 'abc123';
 #-----------------------------------------------------------------
 #掲示板の名前
-$title = 'パーソナルレスボード';
+$title = 'Personal ResBBS Board';
 #-----------------------------------------------------------------
-#投稿フォームの罫線の幅
-#０にすると罫線を表示しない
+#Width of ruled lines in submission form
+#Do not show ruled lines if set to 0
 $table_border = 1;
 #-----------------------------------------------------------------
-#バックグランドの画像ファイル
+#Background image files
 $bg_gif = '';
 #-----------------------------------------------------------------
-#バックグランドカラー
+# BG color
 $bg_color = '#000000';
-#テキストの文字色
+# Color of text
 $text_color = '#FFFFFF';
-#リンク文字色
+# Link color
 $link_color = '#FFFF7A';
-#Ｖリンク文字色
+#V-link character color
 $vlink_color = '#FF8888';
-#Ａリンク文字色
+#A-link character color
 $alink_color = '#FF0000';
 #-----------------------------------------------------------------
-#キャラクター、メッセージ画像ファイル
-#入力フォームの左側に表示されます。
+#Character, message image file.
+#Displayed on the left side of the input form.
 $ch_gif = 'ressbbs.gif';
 #-----------------------------------------------------------------
-#返信の記号を設定 記号='ul' 番号='ol'
+#Set symbol for reply Symbol='ul' Number='ol'
 $ressmode = 'ol';
 #-----------------------------------------------------------------
-#返信記事の行間　開ける＝'on' 開けない＝'off'
+#Line space in reply article Open = 'on' Do not open = 'off
 $space = 'on';
 #-----------------------------------------------------------------
-#メッセージを格納するデータベースファイル
+# File where the software stores messages
 $datafile = 'resbbs.txt';
 #=======================================================================================
-#			初期設定が必要なのはここまでです。
+#			This is the end of the initial setup required.
 #=======================================================================================
 $reload = "http://$ENV{'SERVER_NAME'}$ENV{'SCRIPT_NAME'}";
 
@@ -64,8 +64,8 @@ $DATE[4] = sprintf("%02d",$DATE[4] + 1);
 $DATE[3] = sprintf("%02d",$DATE[3]);
 $DATE[2] = sprintf("%02d",$DATE[2]);
 $DATE[1] = sprintf("%02d",$DATE[1]);
-$DATE[6] = ('日','月','火','水','木','金','土') [$DATE[6]];
-$date_now = "$DATE[5]年$DATE[4]月$DATE[3]日($DATE[6]) $DATE[2]時$DATE[1]分";
+$DATE[6] = ('Sun','Mon','Tue','Thur','Wed','Fri','Sat') [$DATE[6]];
+$date_now = "$DATE[5]/$DATE[4]/$DATE[3]/($DATE[6]) At $DATE[2] $DATE[1] minutes.";
 
 if ($ENV{'REQUEST_METHOD'} eq "POST") {
 	read(STDIN, $QUERY_DATA, $ENV{'CONTENT_LENGTH'});
@@ -116,7 +116,7 @@ sub html {
 		$COOKIE{$name} = $value;
 	}
 
-	#HTMLドキュメントのヘッダーを宣言
+	#Declare the header of the HTML document
 	print "Content-type: text/html\n\n";
 	#投稿フォームを作成
 	print "<html><head><title>" . $title . "</title></head>\n";
@@ -125,35 +125,34 @@ sub html {
 	print "<table border=0><tr>\n";
 		print "<td valign=top><img src=" . $ch_gif . "><br>\n";
 		print "[<a href=$homepage>HomePage</a>]<p>\n";
-		print "<em>新しい投稿から掲載しています。<br>\n";
-		print "返信は[返信]ボタンを押してコメントを記入して下さい。<br>\n";
-		print "返信記事は元の記事に追加されます。<br>\n";
+		print "<em>Articles are sorted from newest.<br>\n";
+		print "To reply, click the [REPLY] button and fill in the textbox. <br>\n";
+		print "The reply article will be added to the original article. <br>\n";
 		print "<br><br></em>\n";
-		print "<font color=#FF0000><em>※半角カナは使用できません。</em></font></td>\n";
+		print "<font color=#FF0000><em>※ Half-width kana characters cannot be used.</em></font></td>\n";
 		print "<td>\n";
 		print "<form method=POST action=resbbs.cgi>\n";
 		print "<input type=hidden name=action value=regist>\n";
 		print "<table border=$table_border cellspacing=1>\n";
-			print "<tr><td align=center>お名前</td>\n";
+			print "<tr><td align=center>Name</td>\n";
 			print "<td><input type=text size=34 name=name value=" . $COOKIE{'name'} . "></td></tr>\n";
 			print "<tr><td align=center>E-mail</td>\n";
 			print "<td><input type=text size=34 name=email value=" . $COOKIE{'email'} . "></td></tr>\n";
-			print "<tr><td align=center>題名</td>\n";
+			print "<tr><td align=center>Title</td>\n";
 			#返信の場合は、題名を挿入する
 			if ($QUERY{'flags'} eq 'return') {
-				#レスのレスを防ぐため「RE:」を削除
 				$QUERY{'subject'} =~ s/RE://g;
 				print "<td><input type=text size=34 name=subject value=RE:" . $QUERY{'subject'} . "></td>\n";
 			} else {
 				print "<td><input type=text size=34 name=subject></td>\n";
 			}
 			print "</tr>\n";
-			print "<tr><td align=center>内容</td>\n";
+			print "<tr><td align=center>Contents</td>\n";
 			print "<td align=center><textarea name=comment rows=3 cols=60></textarea><br>\n";
 			if ($QUERY{'flags'} eq 'return') {
-				print "<input type=submit value=$QUERY{'subject'}へ返信>\n";
+				print "<input type=submit value=$QUERY{'subject'}Reply>\n";
 				print "<input type=hidden name=ress value=$QUERY{'code'}>\n";
-			} else { print "<input type=submit value=新規投稿>\n"; }
+			} else { print "<input type=submit value=New Post>\n"; }
 			print "</td></tr>\n";
 		print "</table>\n";
 		print "</form>\n";
@@ -176,12 +175,12 @@ sub html {
 			print "<tr><td bgcolor=#000088>\n";
 			#print "[" . $code . "]\n";
 			print "<font color=$link_color size=+2><b><i>$subject</i></b></font>\n";
-			print "　投稿者：\n";
+			print "　Submitter：\n";
 			#メールアドレスが記入されていればリンクをつける
 			if ($email ne '') { print "<b><a href=mailto:" . $email . ">" . $name . "</a></b>\n"; }
 			else { print "<b>" . $name . "</b>\n"; }
 			#返信ボタンを付ける
-			print "<font size=-1>　投稿日：" . $date . "</font>　<input type=submit value=返信><br>\n";
+			print "<font size=-1>　Submission Date：" . $date . "</font>　<input type=submit value=Reply><br>\n";
 			print "</td></tr>\n";
 			print "<tr><td bgcolor=#004400>\n";
 			#リロードするときのフラグを「返信」に設定
@@ -201,8 +200,8 @@ sub html {
 						#メールアドレスが記入されていればリンクをつける
 						if ($em ne '') { print "<b><a href=mailto:" . $em . ">" . $na . "</a></b>\n"; }
 						else { print "<b>" . $na . "</b>\n"; }
-						print "</font> さん\n";
-						print "<font size=2> 投稿日：$da</font><br>\n";
+						print "</font> 3\n";
+						print "<font size=2> Submission Date：$da</font><br>\n";
 						print "$com</li>\n";
 						if ($space eq 'on') { print "<br>　 \n"; }
 					}
@@ -220,7 +219,7 @@ sub html {
 		#次ページのためのフォームを生成
 		print "<form method=POST action=resbbs.cgi>\n";
 			print "<input type=hidden name=pline value=" . $next_line . ">\n";
-			print "<input type=submit value=次の10件>\n";
+			print "<input type=submit value=Next 10 items>\n";
 		print "</form>\n";
 	}
 	print "<p align=right><font size=2><a href=http://www2.inforyoma.or.jp/~terra/>resBBS Ver1.1 by Terra</a></font></p>\n";
@@ -291,9 +290,9 @@ sub deletemode {
 	print "<body bgcolor=$bg_color text=$text_color link=$link_color vlink=$vlink_color alink=$alink_color background=$bg_gif>\n";
 	print "<form action=resbbs.cgi method=POST>\n";
 		print "<input type=hidden name=action value=delete>\n";
-		print "削除コード：<input type=text size=39 name=delcode>\n";
-		print "　<input type=submit value=削除><br>\n";
-		print "<font size=2>スペースで区切っていくつでも同時に削除することができます。</font>\n";
+		print "Delkey：<input type=text size=39 name=delcode>\n";
+		print "　<input type=submit value=Delete><br>\n";
+		print "<font size=2>You can delete any number of items at the same time, separated by spaces. </font>\n";
 	print "</form>\n";
 	print "<hr>\n";
 	foreach $line (@DATA) {
@@ -309,7 +308,7 @@ sub deletemode {
 				#メールアドレスが記入されていればリンクをつける
 				if ($email ne '') { print "<b><a href=mailto:" . $email . ">" . $name . "</a></b>\n"; }
 				else { print "<b>" . $name . "</b>\n"; }
-				print "<font size=-1>　投稿日：" . $date . "</font><br>\n";
+				print "<font size=-1>　Submission Date：" . $date . "</font><br>\n";
 				print "$comment\n";
 			print "</td>\n";
 		print "</tr></table>\n";
@@ -317,9 +316,9 @@ sub deletemode {
 	}
 	print "<form action=resbbs.cgi method=POST>\n";
 		print "<input type=hidden name=action value=delete>\n";
-		print "削除コード：<input type=text size=39 name=delcode>\n";
-		print "　<input type=submit value=削除><br>\n";
-		print "<font size=2>スペースで区切っていくつでも同時に削除することができます。</font>\n";
+		print "Delkey：<input type=text size=39 name=delcode>\n";
+		print "　<input type=submit value=Delete><br>\n";
+		print "<font size=2>You can delete any number of items at the same time, separated by spaces. </font>\n";
 	print "</form>\n";
 	exit;
 }
@@ -352,11 +351,11 @@ sub delete {
 #======================================エラー処理ルーチン=================================
 sub error {
 	$error = $_[0];
-	if ($error eq "bad_file") { $msg = 'ファイルのオープン、入出力に失敗しました。'; }
-	elsif ($error eq "bad_name") { $msg = 'ニックネームが記入されていません。'; }
-	elsif ($error eq "bad_comment") { $msg = 'コメントが記入されていません。'; }
+	if ($error eq "bad_file") { $msg = 'File open, input/output failed. '; }
+	elsif ($error eq "bad_name") { $msg = 'Poster name is not filled in. '; }
+	elsif ($error eq "bad_comment") { $msg = 'Nothing has been entered in the contents field. '; }
 	elsif ($error eq "bad_email") {	$msg = 'メールアドレスが不正です。'; }
-	else { $msg = '原因不明のエラーで処理を継続できません。'; }
+	else { $msg = 'Processing cannot continue due to an unknown error. '; }
 	print "Content-type: text/html\n\n";
 	print "<html><head><title>" . $title . "</title></head>\n";
 	print "<body bgcolor=$bg_color text=$text_color link=$link_color vlink=$vlink_color alink=$alink_color background=$bg_gif>\n";
