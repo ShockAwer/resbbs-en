@@ -1,60 +1,60 @@
-#!/usr/local/bin/perl
-#       ª‚ ‚È‚½‚ª‰Á“ü‚µ‚Ä‚¢‚éƒvƒƒoƒCƒ_‚Ì¢perl£Œ¾Œê‚ªg—p‚Å‚«‚é
-#         ƒpƒX‚ğw’è‚µ‚Ü‚·Bˆê”Ê“I‚É¢#!/usr/local/bin/perl£‚Å‘åä•v
+#!/usr//bin/perl
+#       â†‘ã‚ãªãŸãŒåŠ å…¥ã—ã¦ã„ã‚‹ãƒ—ãƒ­ãƒã‚¤ãƒ€ã®ï½¢perlï½£è¨€èªãŒä½¿ç”¨ã§ãã‚‹
+#         ãƒ‘ã‚¹ã‚’æŒ‡å®šã—ã¾ã™ã€‚ä¸€èˆ¬çš„ã«ï½¢#!/usr/local/bin/perlï½£ã§å¤§ä¸ˆå¤«
 
 #=======================================================================================
 #				resbbs Version 1.1
 #=======================================================================================
-#“ú–{ŒêƒR[ƒh•ÏŠ·ƒ‚ƒWƒ…[ƒ‹
+#æ—¥æœ¬èªã‚³ãƒ¼ãƒ‰å¤‰æ›ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«
 require 'jcode.pl';
 
 #-----------------------------------------------------------------
-#‚ ‚È‚½‚Ìƒz[ƒ€ƒy[ƒW‚É–ß‚é‚½‚ß‚Ì‚t‚q‚k
+#ã‚ãªãŸã®ãƒ›ãƒ¼ãƒ ãƒšãƒ¼ã‚¸ã«æˆ»ã‚‹ãŸã‚ã®ï¼µï¼²ï¼¬
 $homepage = 'http://wwwxx.xxxxxxxx.or.jp/~xxxxxx/index.htm';
 #-----------------------------------------------------------------
-#ŠÇ—Òíœƒ‚[ƒh‚ÌƒpƒXƒ[ƒh
-#ŠÇ—Ò‚ÍAŒ–¼—“‚ÉƒpƒXƒ[ƒh‚ğ“ü—Í‚µ‚Ä[“Še]ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·
+#ç®¡ç†è€…å‰Šé™¤ãƒ¢ãƒ¼ãƒ‰ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰
+#ç®¡ç†è€…ã¯ã€ä»¶åæ¬„ã«ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦[æŠ•ç¨¿]ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™
 $password = 'abc123';
 #-----------------------------------------------------------------
-#Œf¦”Â‚Ì–¼‘O
-$title = 'ƒp[ƒ\ƒiƒ‹ƒŒƒXƒ{[ƒh';
+#æ²ç¤ºæ¿ã®åå‰
+$title = 'ãƒ‘ãƒ¼ã‚½ãƒŠãƒ«ãƒ¬ã‚¹ãƒœãƒ¼ãƒ‰';
 #-----------------------------------------------------------------
-#“ŠeƒtƒH[ƒ€‚ÌŒrü‚Ì•
-#‚O‚É‚·‚é‚ÆŒrü‚ğ•\¦‚µ‚È‚¢
+#æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã®ç½«ç·šã®å¹…
+#ï¼ã«ã™ã‚‹ã¨ç½«ç·šã‚’è¡¨ç¤ºã—ãªã„
 $table_border = 1;
 #-----------------------------------------------------------------
-#ƒoƒbƒNƒOƒ‰ƒ“ƒh‚Ì‰æ‘œƒtƒ@ƒCƒ‹
+#ãƒãƒƒã‚¯ã‚°ãƒ©ãƒ³ãƒ‰ã®ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
 $bg_gif = '';
 #-----------------------------------------------------------------
-#ƒoƒbƒNƒOƒ‰ƒ“ƒhƒJƒ‰[
+#ãƒãƒƒã‚¯ã‚°ãƒ©ãƒ³ãƒ‰ã‚«ãƒ©ãƒ¼
 $bg_color = '#000000';
-#ƒeƒLƒXƒg‚Ì•¶šF
+#ãƒ†ã‚­ã‚¹ãƒˆã®æ–‡å­—è‰²
 $text_color = '#FFFFFF';
-#ƒŠƒ“ƒN•¶šF
+#ãƒªãƒ³ã‚¯æ–‡å­—è‰²
 $link_color = '#FFFF7A';
-#‚uƒŠƒ“ƒN•¶šF
+#ï¼¶ãƒªãƒ³ã‚¯æ–‡å­—è‰²
 $vlink_color = '#FF8888';
-#‚`ƒŠƒ“ƒN•¶šF
+#ï¼¡ãƒªãƒ³ã‚¯æ–‡å­—è‰²
 $alink_color = '#FF0000';
 #-----------------------------------------------------------------
-#ƒLƒƒƒ‰ƒNƒ^[AƒƒbƒZ[ƒW‰æ‘œƒtƒ@ƒCƒ‹
-#“ü—ÍƒtƒH[ƒ€‚Ì¶‘¤‚É•\¦‚³‚ê‚Ü‚·B
+#ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«
+#å…¥åŠ›ãƒ•ã‚©ãƒ¼ãƒ ã®å·¦å´ã«è¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
 $ch_gif = 'ressbbs.gif';
 #-----------------------------------------------------------------
-#•ÔM‚Ì‹L†‚ğİ’è ‹L†='ul' ”Ô†='ol'
+#è¿”ä¿¡ã®è¨˜å·ã‚’è¨­å®š è¨˜å·='ul' ç•ªå·='ol'
 $ressmode = 'ol';
 #-----------------------------------------------------------------
-#•ÔM‹L–‚ÌsŠÔ@ŠJ‚¯‚é'on' ŠJ‚¯‚È‚¢'off'
+#è¿”ä¿¡è¨˜äº‹ã®è¡Œé–“ã€€é–‹ã‘ã‚‹ï¼'on' é–‹ã‘ãªã„ï¼'off'
 $space = 'on';
 #-----------------------------------------------------------------
-#ƒƒbƒZ[ƒW‚ğŠi”[‚·‚éƒf[ƒ^ƒx[ƒXƒtƒ@ƒCƒ‹
+#ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ ¼ç´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 $datafile = 'resbbs.txt';
 #=======================================================================================
-#			‰Šúİ’è‚ª•K—v‚È‚Ì‚Í‚±‚±‚Ü‚Å‚Å‚·B
+#			åˆæœŸè¨­å®šãŒå¿…è¦ãªã®ã¯ã“ã“ã¾ã§ã§ã™ã€‚
 #=======================================================================================
 $reload = "http://$ENV{'SERVER_NAME'}$ENV{'SCRIPT_NAME'}";
 
-#ƒNƒbƒL[‚ğŠi”[‚·‚é–¼‘O‚ğİ’è‚·‚é
+#ã‚¯ãƒƒã‚­ãƒ¼ã‚’æ ¼ç´ã™ã‚‹åå‰ã‚’è¨­å®šã™ã‚‹
 $CookieName = 'resbbs';
 
 $ENV{'TZ'} = "JST-9"; 
@@ -64,8 +64,8 @@ $DATE[4] = sprintf("%02d",$DATE[4] + 1);
 $DATE[3] = sprintf("%02d",$DATE[3]);
 $DATE[2] = sprintf("%02d",$DATE[2]);
 $DATE[1] = sprintf("%02d",$DATE[1]);
-$DATE[6] = ('“ú','Œ','‰Î','…','–Ø','‹à','“y') [$DATE[6]];
-$date_now = "$DATE[5]”N$DATE[4]Œ$DATE[3]“ú($DATE[6]) $DATE[2]$DATE[1]•ª";
+$DATE[6] = ('æ—¥','æœˆ','ç«','æ°´','æœ¨','é‡‘','åœŸ') [$DATE[6]];
+$date_now = "$DATE[5]å¹´$DATE[4]æœˆ$DATE[3]æ—¥($DATE[6]) $DATE[2]æ™‚$DATE[1]åˆ†";
 
 if ($ENV{'REQUEST_METHOD'} eq "POST") {
 	read(STDIN, $QUERY_DATA, $ENV{'CONTENT_LENGTH'});
@@ -78,7 +78,7 @@ foreach $pair (@pairs) {
 	$value =~ s/</&lt;/g;
 	$value =~ s/>/&gt;/g;
 	$value =~ s/\n//g;
-	$value =~ s/\,/C/g;
+	$value =~ s/\,/ï¼Œ/g;
 	&jcode'convert(*value,'sjis');
 	$QUERY{$name} = $value;
 }
@@ -98,10 +98,10 @@ elsif ($QUERY{'pline'} ne '') { &html; }
 else { &html; }
 
 
-#===============================HTMLƒhƒLƒ…ƒƒ“ƒg‚ğ¶¬===========================
+#===============================HTMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’ç”Ÿæˆ===========================
 sub html {
 	@DATA = reverse(@DATA);
-	#ƒNƒbƒL[‚ğæ“¾
+	#ã‚¯ãƒƒã‚­ãƒ¼ã‚’å–å¾—
 	$cookies = $ENV{'HTTP_COOKIE'};
 
 	@pairs = split(/;/,$cookies);
@@ -116,79 +116,79 @@ sub html {
 		$COOKIE{$name} = $value;
 	}
 
-	#HTMLƒhƒLƒ…ƒƒ“ƒg‚Ìƒwƒbƒ_[‚ğéŒ¾
+	#HTMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’å®£è¨€
 	print "Content-type: text/html\n\n";
-	#“ŠeƒtƒH[ƒ€‚ğì¬
+	#æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã‚’ä½œæˆ
 	print "<html><head><title>" . $title . "</title></head>\n";
 	print "<body bgcolor=$bg_color text=$text_color link=$link_color vlink=$vlink_color alink=$alink_color background=$bg_gif>\n";
 	print "<div align=center><center>\n";
 	print "<table border=0><tr>\n";
 		print "<td valign=top><img src=" . $ch_gif . "><br>\n";
 		print "[<a href=$homepage>HomePage</a>]<p>\n";
-		print "<em>V‚µ‚¢“Še‚©‚çŒfÚ‚µ‚Ä‚¢‚Ü‚·B<br>\n";
-		print "•ÔM‚Í[•ÔM]ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚ÄƒRƒƒ“ƒg‚ğ‹L“ü‚µ‚Ä‰º‚³‚¢B<br>\n";
-		print "•ÔM‹L–‚ÍŒ³‚Ì‹L–‚É’Ç‰Á‚³‚ê‚Ü‚·B<br>\n";
+		print "<em>æ–°ã—ã„æŠ•ç¨¿ã‹ã‚‰æ²è¼‰ã—ã¦ã„ã¾ã™ã€‚<br>\n";
+		print "è¿”ä¿¡ã¯[è¿”ä¿¡]ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦ã‚³ãƒ¡ãƒ³ãƒˆã‚’è¨˜å…¥ã—ã¦ä¸‹ã•ã„ã€‚<br>\n";
+		print "è¿”ä¿¡è¨˜äº‹ã¯å…ƒã®è¨˜äº‹ã«è¿½åŠ ã•ã‚Œã¾ã™ã€‚<br>\n";
 		print "<br><br></em>\n";
-		print "<font color=#FF0000><em>¦”¼ŠpƒJƒi‚Íg—p‚Å‚«‚Ü‚¹‚ñB</em></font></td>\n";
+		print "<font color=#FF0000><em>â€»åŠè§’ã‚«ãƒŠã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚</em></font></td>\n";
 		print "<td>\n";
 		print "<form method=POST action=resbbs.cgi>\n";
 		print "<input type=hidden name=action value=regist>\n";
 		print "<table border=$table_border cellspacing=1>\n";
-			print "<tr><td align=center>‚¨–¼‘O</td>\n";
+			print "<tr><td align=center>ãŠåå‰</td>\n";
 			print "<td><input type=text size=34 name=name value=" . $COOKIE{'name'} . "></td></tr>\n";
 			print "<tr><td align=center>E-mail</td>\n";
 			print "<td><input type=text size=34 name=email value=" . $COOKIE{'email'} . "></td></tr>\n";
-			print "<tr><td align=center>‘è–¼</td>\n";
-			#•ÔM‚Ìê‡‚ÍA‘è–¼‚ğ‘}“ü‚·‚é
+			print "<tr><td align=center>é¡Œå</td>\n";
+			#è¿”ä¿¡ã®å ´åˆã¯ã€é¡Œåã‚’æŒ¿å…¥ã™ã‚‹
 			if ($QUERY{'flags'} eq 'return') {
-				#ƒŒƒX‚ÌƒŒƒX‚ğ–h‚®‚½‚ßuRE:v‚ğíœ
+				#ãƒ¬ã‚¹ã®ãƒ¬ã‚¹ã‚’é˜²ããŸã‚ã€ŒRE:ã€ã‚’å‰Šé™¤
 				$QUERY{'subject'} =~ s/RE://g;
 				print "<td><input type=text size=34 name=subject value=RE:" . $QUERY{'subject'} . "></td>\n";
 			} else {
 				print "<td><input type=text size=34 name=subject></td>\n";
 			}
 			print "</tr>\n";
-			print "<tr><td align=center>“à—e</td>\n";
+			print "<tr><td align=center>å†…å®¹</td>\n";
 			print "<td align=center><textarea name=comment rows=3 cols=60></textarea><br>\n";
 			if ($QUERY{'flags'} eq 'return') {
-				print "<input type=submit value=$QUERY{'subject'}‚Ö•ÔM>\n";
+				print "<input type=submit value=$QUERY{'subject'}ã¸è¿”ä¿¡>\n";
 				print "<input type=hidden name=ress value=$QUERY{'code'}>\n";
-			} else { print "<input type=submit value=V‹K“Še>\n"; }
+			} else { print "<input type=submit value=æ–°è¦æŠ•ç¨¿>\n"; }
 			print "</td></tr>\n";
 		print "</table>\n";
 		print "</form>\n";
 	print "</td></tr></table>\n";
 	if ($QUERY{'pline'} eq '') { $pline = 0; } else { $pline = $QUERY{'pline'}; }
-	#•Û‘¶‚³‚ê‚Ä‚¢‚é‘ƒf[ƒ^”‚ğæ“¾
+	#ä¿å­˜ã•ã‚Œã¦ã„ã‚‹ç·ãƒ‡ãƒ¼ã‚¿æ•°ã‚’å–å¾—
 	$end_data = @NEW - 1;
-	#‚Pƒy[ƒW‚É•\¦‚·‚éƒf[ƒ^”‚ğ¡‚Ü‚Å‚É•\¦‚µ‚½”‚Éƒvƒ‰ƒX‚·‚é
+	#ï¼‘ãƒšãƒ¼ã‚¸ã«è¡¨ç¤ºã™ã‚‹ãƒ‡ãƒ¼ã‚¿æ•°ã‚’ä»Šã¾ã§ã«è¡¨ç¤ºã—ãŸæ•°ã«ãƒ—ãƒ©ã‚¹ã™ã‚‹
 	$page_end = $pline + 9;
-	#ƒy[ƒW‚ÌÅŒã‚Ìs‚ª‘ƒf[ƒ^”ˆÈã‚É‚È‚é‚»‚±‚ÅI‚í‚è‚É‚·‚é
+	#ãƒšãƒ¼ã‚¸ã®æœ€å¾Œã®è¡ŒãŒç·ãƒ‡ãƒ¼ã‚¿æ•°ä»¥ä¸Šã«ãªã‚‹ãã“ã§çµ‚ã‚ã‚Šã«ã™ã‚‹
 	if ($page_end >= $end_data) { $page_end = $end_data; }
-	#“Še‚³‚ê‚Ä‚¢‚é‹L–‚ğ‚Ps‚¸‚Â•\¦‚·‚é
+	#æŠ•ç¨¿ã•ã‚Œã¦ã„ã‚‹è¨˜äº‹ã‚’ï¼‘è¡Œãšã¤è¡¨ç¤ºã™ã‚‹
 	foreach ($pline .. $page_end) {
 		($date,$code,$ress,$name,$email,$comment,$subject) = split(/\,/,$NEW[$_]);
-		#“ü—Í’Ê‚èo—Í‚³‚ê‚é‚æ‚¤ƒGƒ“ƒ^[‚ğ<br>‚ÉŠ·‚¦‚é
+		#å…¥åŠ›é€šã‚Šå‡ºåŠ›ã•ã‚Œã‚‹ã‚ˆã†ã‚¨ãƒ³ã‚¿ãƒ¼ã‚’<br>ã«æ›ãˆã‚‹
 		$comment =~ s/\r/<br>/g;
-		#‚Ps‚²‚Æ‚É•ÔMƒ{ƒ^ƒ“‚ğ•t‚¯‚éƒtƒH[ƒ€‚ğì¬
+		#ï¼‘è¡Œã”ã¨ã«è¿”ä¿¡ãƒœã‚¿ãƒ³ã‚’ä»˜ã‘ã‚‹ãƒ•ã‚©ãƒ¼ãƒ ã‚’ä½œæˆ
 		print "<form method=POST action=resbbs.cgi>\n";
 		print "<table border=1 width=90%>\n";
 			print "<tr><td bgcolor=#000088>\n";
 			#print "[" . $code . "]\n";
 			print "<font color=$link_color size=+2><b><i>$subject</i></b></font>\n";
-			print "@“ŠeÒF\n";
-			#ƒ[ƒ‹ƒAƒhƒŒƒX‚ª‹L“ü‚³‚ê‚Ä‚¢‚ê‚ÎƒŠƒ“ƒN‚ğ‚Â‚¯‚é
+			print "ã€€æŠ•ç¨¿è€…ï¼š\n";
+			#ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã‚Œã°ãƒªãƒ³ã‚¯ã‚’ã¤ã‘ã‚‹
 			if ($email ne '') { print "<b><a href=mailto:" . $email . ">" . $name . "</a></b>\n"; }
 			else { print "<b>" . $name . "</b>\n"; }
-			#•ÔMƒ{ƒ^ƒ“‚ğ•t‚¯‚é
-			print "<font size=-1>@“Še“úF" . $date . "</font>@<input type=submit value=•ÔM><br>\n";
+			#è¿”ä¿¡ãƒœã‚¿ãƒ³ã‚’ä»˜ã‘ã‚‹
+			print "<font size=-1>ã€€æŠ•ç¨¿æ—¥ï¼š" . $date . "</font>ã€€<input type=submit value=è¿”ä¿¡><br>\n";
 			print "</td></tr>\n";
 			print "<tr><td bgcolor=#004400>\n";
-			#ƒŠƒ[ƒh‚·‚é‚Æ‚«‚Ìƒtƒ‰ƒO‚ğu•ÔMv‚Éİ’è
+			#ãƒªãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã¨ãã®ãƒ•ãƒ©ã‚°ã‚’ã€Œè¿”ä¿¡ã€ã«è¨­å®š
 			print "<input type=hidden name=flags value=return>\n";
-			#‰½s–Ú‚Ì•ÔM‚©‚ğ’m‚é‚½‚ß‚ÉƒR[ƒh‚ğ•Ô‚·
+			#ä½•è¡Œç›®ã®è¿”ä¿¡ã‹ã‚’çŸ¥ã‚‹ãŸã‚ã«ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã™
 			print "<input type=hidden name=code value=" . $code . ">\n";
-			#ƒTƒuƒWƒFƒNƒg‚ğ•Ô‚·
+			#ã‚µãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™
 			print "<input type=hidden name=subject value=" . $subject . ">\n";
 			print "<blockquote>\n";
 				print "<p>$comment</p>\n";
@@ -198,13 +198,13 @@ sub html {
 					$com =~ s/\r/<br>/g;
 					if ($code eq $re) {
 						print "<li><font size=2>re:</font><font size=3>\n";
-						#ƒ[ƒ‹ƒAƒhƒŒƒX‚ª‹L“ü‚³‚ê‚Ä‚¢‚ê‚ÎƒŠƒ“ƒN‚ğ‚Â‚¯‚é
+						#ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã‚Œã°ãƒªãƒ³ã‚¯ã‚’ã¤ã‘ã‚‹
 						if ($em ne '') { print "<b><a href=mailto:" . $em . ">" . $na . "</a></b>\n"; }
 						else { print "<b>" . $na . "</b>\n"; }
-						print "</font> ‚³‚ñ\n";
-						print "<font size=2> “Še“úF$da</font><br>\n";
+						print "</font> ã•ã‚“\n";
+						print "<font size=2> æŠ•ç¨¿æ—¥ï¼š$da</font><br>\n";
 						print "$com</li>\n";
-						if ($space eq 'on') { print "<br>@ \n"; }
+						if ($space eq 'on') { print "<br>ã€€ \n"; }
 					}
 				}
 				print "</$ressmode>\n";
@@ -213,14 +213,14 @@ sub html {
 		print "</form><p>\n";
 	}
 	print "</center></div>\n";
-	#Ÿ‚Ìƒy[ƒW‚ÌÅ‰‚Ìs”Ô†‚ğ‚±‚Ìƒy[ƒW‚ÌÅŒã‚Ìs‚É‚Pƒvƒ‰ƒX‚·‚é
+	#æ¬¡ã®ãƒšãƒ¼ã‚¸ã®æœ€åˆã®è¡Œç•ªå·ã‚’ã“ã®ãƒšãƒ¼ã‚¸ã®æœ€å¾Œã®è¡Œã«ï¼‘ãƒ—ãƒ©ã‚¹ã™ã‚‹
 	$next_line = $page_end + 1;
-	#‚Ü‚¾ƒf[ƒ^‚ªc‚Á‚Ä‚¢‚ê‚ÎŸƒy[ƒW‚Ìƒ{ƒ^ƒ“‚ğ•t‚¯‚é
+	#ã¾ã ãƒ‡ãƒ¼ã‚¿ãŒæ®‹ã£ã¦ã„ã‚Œã°æ¬¡ãƒšãƒ¼ã‚¸ã®ãƒœã‚¿ãƒ³ã‚’ä»˜ã‘ã‚‹
 	if ($page_end ne $end_data) {
-		#Ÿƒy[ƒW‚Ì‚½‚ß‚ÌƒtƒH[ƒ€‚ğ¶¬
+		#æ¬¡ãƒšãƒ¼ã‚¸ã®ãŸã‚ã®ãƒ•ã‚©ãƒ¼ãƒ ã‚’ç”Ÿæˆ
 		print "<form method=POST action=resbbs.cgi>\n";
 			print "<input type=hidden name=pline value=" . $next_line . ">\n";
-			print "<input type=submit value=Ÿ‚Ì10Œ>\n";
+			print "<input type=submit value=æ¬¡ã®10ä»¶>\n";
 		print "</form>\n";
 	}
 	print "<p align=right><font size=2><a href=http://www2.inforyoma.or.jp/~terra/>resBBS Ver1.1 by Terra</a></font></p>\n";
@@ -228,13 +228,13 @@ sub html {
 	exit;
 }
 
-#===============================‹L–‚ğƒtƒ@ƒCƒ‹‚É‘‚«‚ŞƒTƒuƒ‹[ƒ`ƒ“===========================
+#===============================è¨˜äº‹ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€ã‚µãƒ–ãƒ«ãƒ¼ãƒãƒ³===========================
 sub regist {
-	#“ü—Í‚³‚ê‚½ƒf[ƒ^‚ğƒ`ƒFƒbƒN‚µ‚ÄA“ŠeÒAƒRƒƒ“ƒgAƒ[ƒ‹ƒAƒhƒŒƒX‚ª
-	#“ü—Í‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎƒGƒ‰[‚ğo—Í‚µAÄ“ü—Í‚ğ‘£‚·
+	#å…¥åŠ›ã•ã‚ŒãŸãƒ‡ãƒ¼ã‚¿ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¦ã€æŠ•ç¨¿è€…ã€ã‚³ãƒ¡ãƒ³ãƒˆã€ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒ
+	#å…¥åŠ›ã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã‚¨ãƒ©ãƒ¼ã‚’å‡ºåŠ›ã—ã€å†å…¥åŠ›ã‚’ä¿ƒã™
 	if ($QUERY{'name'} eq "")    { &error(bad_name);    }
 	if ($QUERY{'comment'} eq "") { &error(bad_comment); }
-	#ƒ[ƒ‹ƒAƒhƒŒƒX‚Ì–¢‹L“ü‚ğ‹–‰Â‚·‚éê‡‚ÍA‰º‚Ìs‚Ìæ“ª‚Éu#v‚ğ‚Â‚¯‚Ä–³Œø‚É‚·‚é
+	#ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ã®æœªè¨˜å…¥ã‚’è¨±å¯ã™ã‚‹å ´åˆã¯ã€ä¸‹ã®è¡Œã®å…ˆé ­ã«ã€Œ#ã€ã‚’ã¤ã‘ã¦ç„¡åŠ¹ã«ã™ã‚‹
 	#if ($QUERY{'email'} ne "") { if (!($QUERY{'email'} =~ /(.*)\@(.*)\.(.*)/)) { &error(bad_email); }}
 	$ENV{'TZ'} = "GMT"; 
 	@date = localtime(time + 30 * 86400);
@@ -249,67 +249,67 @@ sub regist {
 	$cook="name\:$QUERY{'name'}\,email\:$QUERY{'email'}";
 	print "Set-Cookie: $CookieName=$cook; expires=$date_gmt\n";
 
-	#Å‘å“o˜^”‚P‚O‚OŒ‚ğ’´‚¦‚éƒf[ƒ^‚ğØ‚èÌ‚Ä‚Ü‚·
+	#æœ€å¤§ç™»éŒ²æ•°ï¼‘ï¼ï¼ä»¶ã‚’è¶…ãˆã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’åˆ‡ã‚Šæ¨ã¦ã¾ã™
 	$i = 1;
 	foreach $line (@DATA) {
 		$i++;
-		#99Œ‚Ü‚Å‚Ìƒf[ƒ^‚ğV‚µ‚¢”z—ñ‚ÉŠi”[
+		#99ä»¶ã¾ã§ã®ãƒ‡ãƒ¼ã‚¿ã‚’æ–°ã—ã„é…åˆ—ã«æ ¼ç´
 		if ($i <= 99) { push(@new_data,$line); }
 	}
-	#’Ç‰Á‚·‚é‹L–‚ÌƒR[ƒh‚ğæ“¾
+	#è¿½åŠ ã™ã‚‹è¨˜äº‹ã®ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
 	$count = @DATA;
 	if ($count < 1) {
-		#‹L–‚ª‚È‚¢ê‡‚ÍAƒR[ƒh‚ğ‚P‚É
+		#è¨˜äº‹ãŒãªã„å ´åˆã¯ã€ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ã«
 		$new_code = 1;
 	} else {
-		#‹L–‚ ‚éê‡‚ÍAÅŒã‚É“Še‚³‚ê‚½‹L–‚ÌƒR[ƒh‚É‚Pƒvƒ‰ƒX‚·‚é
+		#è¨˜äº‹ã‚ã‚‹å ´åˆã¯ã€æœ€å¾Œã«æŠ•ç¨¿ã•ã‚ŒãŸè¨˜äº‹ã®ã‚³ãƒ¼ãƒ‰ã«ï¼‘ãƒ—ãƒ©ã‚¹ã™ã‚‹
 		($date,$code,$name,$email,$comment,$subject) = split(/\,/,$DATA[0]);
 		$new_code = $code + 1;
 	}
-	#‘‚«‚İƒf[ƒ^‚ÌƒtƒH[ƒ}ƒbƒg‚ğ®‚¦‚Ü‚·
+	#æ›¸ãè¾¼ã¿ãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æ•´ãˆã¾ã™
 	$value = "$date_now\,$new_code,$QUERY{'ress'}\,$QUERY{'name'}\,$QUERY{'email'}\,$QUERY{'comment'}\,$QUERY{'subject'}\n";
-	#ÅŒã‚É“Še‚³‚ê‚½‹L–‚ğæ“ª‚É’Ç‰Á‚·‚é
+	#æœ€å¾Œã«æŠ•ç¨¿ã•ã‚ŒãŸè¨˜äº‹ã‚’å…ˆé ­ã«è¿½åŠ ã™ã‚‹
 	unshift(@new_data,$value);
-	#ƒf[ƒ^ƒx[ƒXƒtƒ@ƒCƒ‹‚ğã‘‚«‚·‚é
+	#ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸Šæ›¸ãã™ã‚‹
 	if (!open(NOTE,">$datafile")) { &error(bad_file); }
 	print NOTE @new_data;
 	close(NOTE);
-	#ÅV‚Ìƒf[ƒ^‚ğ•\¦‚·‚é‚½‚ßAƒŠƒ[ƒh‚µ‚Ü‚·
+	#æœ€æ–°ã®ãƒ‡ãƒ¼ã‚¿ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã€ãƒªãƒ­ãƒ¼ãƒ‰ã—ã¾ã™
 	print "Location: $reload?\n\n";
 	exit;
 }
 
-#======================================íœƒ‚[ƒh=================================
+#======================================å‰Šé™¤ãƒ¢ãƒ¼ãƒ‰=================================
 sub deletemode {
 	$count = @DATA;
-	#“o˜^‚³‚ê‚Ä‚¢‚é‹L–‚ª–³‚¯‚ê‚Îíœ‚Ì•K—v‚ª–³‚¢‚Ì‚Å–ß‚é
+	#ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹è¨˜äº‹ãŒç„¡ã‘ã‚Œã°å‰Šé™¤ã®å¿…è¦ãŒç„¡ã„ã®ã§æˆ»ã‚‹
 	if ($count eq 0) { &html; }
-	#HTMLƒhƒLƒ…ƒƒ“ƒg‚Ìƒwƒbƒ_[‚ğéŒ¾
+	#HTMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’å®£è¨€
 	print "Content-type: text/html\n\n";
-	#“ŠeƒtƒH[ƒ€‚ğì¬
+	#æŠ•ç¨¿ãƒ•ã‚©ãƒ¼ãƒ ã‚’ä½œæˆ
 	print "<html><head><title>" . $title . "</title></head>\n";
 	print "<body bgcolor=$bg_color text=$text_color link=$link_color vlink=$vlink_color alink=$alink_color background=$bg_gif>\n";
 	print "<form action=resbbs.cgi method=POST>\n";
 		print "<input type=hidden name=action value=delete>\n";
-		print "íœƒR[ƒhF<input type=text size=39 name=delcode>\n";
-		print "@<input type=submit value=íœ><br>\n";
-		print "<font size=2>ƒXƒy[ƒX‚Å‹æØ‚Á‚Ä‚¢‚­‚Â‚Å‚à“¯‚Éíœ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B</font>\n";
+		print "å‰Šé™¤ã‚³ãƒ¼ãƒ‰ï¼š<input type=text size=39 name=delcode>\n";
+		print "ã€€<input type=submit value=å‰Šé™¤><br>\n";
+		print "<font size=2>ã‚¹ãƒšãƒ¼ã‚¹ã§åŒºåˆ‡ã£ã¦ã„ãã¤ã§ã‚‚åŒæ™‚ã«å‰Šé™¤ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚</font>\n";
 	print "</form>\n";
 	print "<hr>\n";
 	foreach $line (@DATA) {
 		($date,$code,$ress,$name,$email,$comment,$subject) = split(/\,/,$line);
-		#“ü—Í’Ê‚èo—Í‚³‚ê‚é‚æ‚¤ƒGƒ“ƒ^[‚ğ<br>‚ÉŠ·‚¦‚é
+		#å…¥åŠ›é€šã‚Šå‡ºåŠ›ã•ã‚Œã‚‹ã‚ˆã†ã‚¨ãƒ³ã‚¿ãƒ¼ã‚’<br>ã«æ›ãˆã‚‹
 		#$comment =~ s/\r/<br>/g;
 		print "<table border=0 width=100%>\n";
 		print "<tr>\n";
 			print "<td width=5% valign=top>[$code]</td>\n";
 			print "<td valign=top>\n";
 				print "<font color=$link_color size=+1><b>$subject</b></font>\n";
-				print "@“ŠeÒF\n";
-				#ƒ[ƒ‹ƒAƒhƒŒƒX‚ª‹L“ü‚³‚ê‚Ä‚¢‚ê‚ÎƒŠƒ“ƒN‚ğ‚Â‚¯‚é
+				print "ã€€æŠ•ç¨¿è€…ï¼š\n";
+				#ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã‚Œã°ãƒªãƒ³ã‚¯ã‚’ã¤ã‘ã‚‹
 				if ($email ne '') { print "<b><a href=mailto:" . $email . ">" . $name . "</a></b>\n"; }
 				else { print "<b>" . $name . "</b>\n"; }
-				print "<font size=-1>@“Še“úF" . $date . "</font><br>\n";
+				print "<font size=-1>ã€€æŠ•ç¨¿æ—¥ï¼š" . $date . "</font><br>\n";
 				print "$comment\n";
 			print "</td>\n";
 		print "</tr></table>\n";
@@ -317,19 +317,19 @@ sub deletemode {
 	}
 	print "<form action=resbbs.cgi method=POST>\n";
 		print "<input type=hidden name=action value=delete>\n";
-		print "íœƒR[ƒhF<input type=text size=39 name=delcode>\n";
-		print "@<input type=submit value=íœ><br>\n";
-		print "<font size=2>ƒXƒy[ƒX‚Å‹æØ‚Á‚Ä‚¢‚­‚Â‚Å‚à“¯‚Éíœ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B</font>\n";
+		print "å‰Šé™¤ã‚³ãƒ¼ãƒ‰ï¼š<input type=text size=39 name=delcode>\n";
+		print "ã€€<input type=submit value=å‰Šé™¤><br>\n";
+		print "<font size=2>ã‚¹ãƒšãƒ¼ã‚¹ã§åŒºåˆ‡ã£ã¦ã„ãã¤ã§ã‚‚åŒæ™‚ã«å‰Šé™¤ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚</font>\n";
 	print "</form>\n";
 	exit;
 }
-#======================================íœƒ‚[ƒh=================================
+#======================================å‰Šé™¤ãƒ¢ãƒ¼ãƒ‰=================================
 sub delete {
 	@CODE = split(/ /,$QUERY{'delcode'});
 	$keycount = @CODE;
-	#íœ‚·‚é”Ô†‚ªw’è‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î–ß‚é
+	#å‰Šé™¤ã™ã‚‹ç•ªå·ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã‘ã‚Œã°æˆ»ã‚‹
 	if ($keycount eq 0) { &html; }
-	#ƒf[ƒ^ƒx[ƒXƒtƒ@ƒCƒ‹‚ğŠJ‚«ADATA”z—ñ‚ÉŠi”[‚µ‚Ü‚·
+	#ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãã€DATAé…åˆ—ã«æ ¼ç´ã—ã¾ã™
 	if (!open(NOTE,"$datafile")) { &error(bad_file); }
 	@DATA = <NOTE>;
 	close(NOTE);
@@ -342,25 +342,25 @@ sub delete {
 		}
 		if ($match eq "false") { push (@new_data,$line); }
 	}
-	#ƒf[ƒ^ƒx[ƒXƒtƒ@ƒCƒ‹‚ğã‘‚«‚·‚é
+	#ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¸Šæ›¸ãã™ã‚‹
 	if (!open(NOTE,">$datafile")) { &error(bad_file); }
 	print NOTE @new_data;
 	close(NOTE);
 	print "Location: $reload?\n\n";
 	exit;
 }
-#======================================ƒGƒ‰[ˆ—ƒ‹[ƒ`ƒ“=================================
+#======================================ã‚¨ãƒ©ãƒ¼å‡¦ç†ãƒ«ãƒ¼ãƒãƒ³=================================
 sub error {
 	$error = $_[0];
-	if ($error eq "bad_file") { $msg = 'ƒtƒ@ƒCƒ‹‚ÌƒI[ƒvƒ“A“üo—Í‚É¸”s‚µ‚Ü‚µ‚½B'; }
-	elsif ($error eq "bad_name") { $msg = 'ƒjƒbƒNƒl[ƒ€‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB'; }
-	elsif ($error eq "bad_comment") { $msg = 'ƒRƒƒ“ƒg‚ª‹L“ü‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB'; }
-	elsif ($error eq "bad_email") {	$msg = 'ƒ[ƒ‹ƒAƒhƒŒƒX‚ª•s³‚Å‚·B'; }
-	else { $msg = 'Œ´ˆö•s–¾‚ÌƒGƒ‰[‚Åˆ—‚ğŒp‘±‚Å‚«‚Ü‚¹‚ñB'; }
+	if ($error eq "bad_file") { $msg = 'ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚ªãƒ¼ãƒ—ãƒ³ã€å…¥å‡ºåŠ›ã«å¤±æ•—ã—ã¾ã—ãŸã€‚'; }
+	elsif ($error eq "bad_name") { $msg = 'ãƒ‹ãƒƒã‚¯ãƒãƒ¼ãƒ ãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚'; }
+	elsif ($error eq "bad_comment") { $msg = 'ã‚³ãƒ¡ãƒ³ãƒˆãŒè¨˜å…¥ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚'; }
+	elsif ($error eq "bad_email") {	$msg = 'ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹ãŒä¸æ­£ã§ã™ã€‚'; }
+	else { $msg = 'åŸå› ä¸æ˜ã®ã‚¨ãƒ©ãƒ¼ã§å‡¦ç†ã‚’ç¶™ç¶šã§ãã¾ã›ã‚“ã€‚'; }
 	print "Content-type: text/html\n\n";
 	print "<html><head><title>" . $title . "</title></head>\n";
 	print "<body bgcolor=$bg_color text=$text_color link=$link_color vlink=$vlink_color alink=$alink_color background=$bg_gif>\n";
-	print "<center><font size=5>‚d‚q‚q‚n‚q</font><hr>\n";
+	print "<center><font size=5>ï¼¥ï¼²ï¼²ï¼¯ï¼²</font><hr>\n";
 	print "<i>" . $msg . "</i><hr>\n";
 	print "</center></body></html>\n";
 	exit;
